@@ -1,0 +1,18 @@
+{
+    "name": "mvc5/facade",
+    "description": "Arc5 provides a set of static classes for the Mvc5 Framework",
+    "keywords": ["static", "facade"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Gregory Baboolal",
+            "email": "devosc@gmail.com"
+        }
+    ],
+    "autoload": {
+        "files": ["./functions.php"],
+        "psr-4": {
+            "Arc5\\": "./src"
+        }
+    }
+}
