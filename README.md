@@ -35,7 +35,7 @@ try {
         $controller = $request->controller();
 
         $controller && $result = Service::call(
-            $controller, [Arg::REQUEST => $request, Arg::RESPONSE => Response::response()]
+            $controller, [Arg::REQUEST => $request, Arg::RESPONSE => $response]
         );
     }
 
@@ -100,14 +100,14 @@ To use static classes within the Mvc5 Framework, the service context needs to be
 'web\context', //middleware
 ```
 
-The following service configurations are also required.
+The corresponding service configurations already exist in the Mvc5 service config.
 
 ```php
 'service\context' => new Invoke(Mvc5\Service\Context::class, ['service' => new Link]),
 'web\context'     => [Mvc5\Web\Context::class, new Link],
 ```
 
-Arc5 automatically provides functions that can be imported into the [View5 Template Engine](https://github.com/mvc5/view). The following service configuration automatically imports these functions into each template.
+Arc5 automatically provides [functions](https://github.com/mvc5/facade/blob/master/functions.php) that can be imported into the [View5 Template Engine](https://github.com/mvc5/view). The following service configuration automatically imports these functions into each template.
 
 ```php
 'view5\template' => [ViewTemplate::class, ['import' => ['arc5']]],
