@@ -22,18 +22,17 @@ Service::context(include __DIR__ . '/../config/config.php');
 
 try {
 
-    $request = Request::request();
-
+    $request  = Request::request();
     $response = Response::response();
-
-    $result = Route::dispatch($request);
+    $result   = Route::dispatch($request);
 
     if ($result instanceof HttpRequest) {
+        $request = Route::error($result);
+        $result  = null;
 
-        $request = Service::service()[Arg::REQUEST] = $result;
+        Service::service()[Arg::REQUEST] = $request;
 
         $controller = $request->controller();
-
         $controller && $result = Service::call(
             $controller, [Arg::REQUEST => $request, Arg::RESPONSE => $response]
         );
@@ -56,7 +55,7 @@ try {
 }  catch(\Exception $exception) {
 
     App::exception($exception);
-
+    
 }
 ```
 

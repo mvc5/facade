@@ -26,6 +26,15 @@ trait Route
     }
 
     /**
+     * @param HttpRequest $request
+     * @return callable|mixed|null|object
+     */
+    static function error(HttpRequest $request)
+    {
+        return static::call('request\error', [Arg::REQUEST => $request]);
+    }
+
+    /**
      * @param null $name
      * @param array $params
      * @param array $options
