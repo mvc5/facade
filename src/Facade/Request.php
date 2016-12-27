@@ -19,11 +19,12 @@ trait Request
 
     /**
      * @param $name
+     * @param null $default
      * @return mixed
      */
-    static function arg($name)
+    static function arg($name, $default = null)
     {
-        return static::request()->arg($name);
+        return static::request()->arg($name, $default);
     }
 
     /**
@@ -85,11 +86,12 @@ trait Request
 
     /**
      * @param $name
+     * @param null $default
      * @return mixed
      */
-    static function data($name = null)
+    static function data($name = null, $default = null)
     {
-        return static::request()->data($name);
+        return static::request()->data($name, $default);
     }
 
     /**
@@ -175,11 +177,12 @@ trait Request
 
     /**
      * @param $name
+     * @param null $default
      * @return mixed
      */
-    static function param($name)
+    static function param($name, $default = null)
     {
-        return static::request()->param($name);
+        return static::request()->param($name, $default);
     }
 
     /**
@@ -208,11 +211,12 @@ trait Request
 
     /**
      * @param $name
+     * @param null $default
      * @return array
      */
-    static function post($name = null)
+    static function post($name = null, $default = null)
     {
-        return static::request()->post($name);
+        return static::request()->post($name, $default);
     }
 
     /**
@@ -241,20 +245,22 @@ trait Request
 
     /**
      * @param $name
+     * @param null $default
      * @return array|\ArrayAccess
      */
-    static function server($name = null)
+    static function server($name = null, $default = null)
     {
-        return static::request()->server($name);
+        return static::request()->server($name, $default);
     }
 
     /**
      * @param $name
+     * @param null $default
      * @return array|\ArrayAccess
      */
-    static function session($name = null)
+    static function session($name = null, $default = null)
     {
-        return static::request()->session($name);
+        return static::request()->session($name, $default);
     }
 
     /**
@@ -291,11 +297,12 @@ trait Request
 
     /**
      * @param $name
+     * @param null $default
      * @return mixed
      */
-    static function variable($name)
+    static function variable($name, $default = null)
     {
-        return static::request()->variable($name);
+        return static::request()->variable($name, $default);
     }
 
     /**
