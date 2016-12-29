@@ -66,7 +66,7 @@ Short names can be used to alias class names by registering an alias autoload fu
 spl_autoload_register(new Mvc5\Service\Alias(include __DIR__ . '/config/alias.php'));
 ```
 
-When a class cannot be found by the default autoloader (i.e. composer) and it has an alias, the PHP class_alias method is called; which will call the autload mechanism again if the aliased class does not already exist. Below is an example alias configuration.
+When a class cannot be found by the default autoloader (i.e. composer) and it has an alias, the PHP class_alias method is called; which will call the autoload mechanism again if the aliased class does not already exist. Below is an example alias configuration.
 
 ```php
 return [
