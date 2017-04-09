@@ -25,12 +25,13 @@ function messages()
 }
 
 /**
- * @param $name
- * @param array $params
+ * @param array|null|string $route
+ * @param array|string $query
+ * @param string $fragment
  * @param array $options
  * @return string
  */
-function url($name, array $params = [], array $options = [])
+function url($route, $query = '', $fragment = '', array $options = [])
 {
-    return Route::url($name, $params, $options);
+    return Route::url($route, $query, $fragment, $options);
 }

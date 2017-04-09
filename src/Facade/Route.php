@@ -35,13 +35,14 @@ trait Route
     }
 
     /**
-     * @param null $name
-     * @param array $params
+     * @param array|null|string $route
+     * @param array|string $query
+     * @param string $fragment
      * @param array $options
      * @return string
      */
-    static function url($name = null, array $params = [], array $options = [])
+    static function url($route, $query = '', $fragment = '', array $options = [])
     {
-        return static::call(Arg::URL, [$name, $params, $options]);
+        return static::call(Arg::URL, [$route, $query, $fragment, $options]);
     }
 }
