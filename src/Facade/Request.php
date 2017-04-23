@@ -53,14 +53,6 @@ trait Request
     }
 
     /**
-     * @return mixed
-     */
-    static function contentType()
-    {
-        return static::request()->contentType();
-    }
-
-    /**
      * @return array|callable|null|object|string
      */
     static function controller()
@@ -273,14 +265,6 @@ trait Request
     }
 
     /**
-     * @return resource
-     */
-    static function stream()
-    {
-        return static::request()->stream();
-    }
-
-    /**
      * @return string
      */
     static function uri()
@@ -309,9 +293,9 @@ trait Request
      * @param null $default
      * @return mixed
      */
-    static function variable($name, $default = null)
+    static function var($name, $default = null)
     {
-        return static::request()->variable($name, $default);
+        return static::request()->var($name, $default);
     }
 
     /**
