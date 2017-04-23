@@ -26,7 +26,7 @@ trait View
      */
     static function layout(array $vars = [], $template = null, $model = Arg::LAYOUT)
     {
-        return static::model($vars, $template, $model);
+        return static::plugin($model, array_filter([Arg::TEMPLATE => $template, Arg::VARS => $vars]));
     }
 
     /**
@@ -37,10 +37,7 @@ trait View
      */
     static function model(array $vars = [], $template = null, $model = Arg::VIEW_MODEL)
     {
-        $template &&
-            $vars[Arg::TEMPLATE_MODEL] = $template;
-
-        return static::plugin($model, [$vars]);
+        return static::plugin($model, [$template, $vars]);
     }
 
     /**
