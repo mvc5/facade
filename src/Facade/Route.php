@@ -7,6 +7,7 @@ namespace Arc5\Facade;
 
 use Mvc5\Arg;
 use Mvc5\Http\Request as HttpRequest;
+use Mvc5\Http\Uri;
 use Mvc5\Service\Facade;
 
 trait Route
@@ -18,24 +19,24 @@ trait Route
 
     /**
      * @param HttpRequest $request
-     * @return callable|mixed|null|object
+     * @return mixed|HttpRequest
      */
     static function dispatch(HttpRequest $request)
     {
-        return static::call('route\dispatch', [Arg::REQUEST => $request]);
+        return static::call('route\dispatch', [$request]);
     }
 
     /**
      * @param HttpRequest $request
-     * @return callable|mixed|null|object
+     * @return HttpRequest
      */
     static function error(HttpRequest $request)
     {
-        return static::call('request\error', [Arg::REQUEST => $request]);
+        return static::call('request\error', [$request]);
     }
 
     /**
-     * @param array|null|string $route
+     * @param array|null|string|Uri $route
      * @param array|string $query
      * @param string $fragment
      * @param array $options

@@ -23,7 +23,7 @@ trait Session
     static function session($name = null)
     {
         return !($session = static::plugin(Arg::SESSION)) || !$name ? $session : (
-            is_array($session) ? (isset($session[$name]) ? $session[$name] : null) : $session->get($name)
+            is_array($session) ? ($session[$name] ?? null) : $session->get($name)
         );
     }
 }
