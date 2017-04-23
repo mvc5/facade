@@ -28,9 +28,7 @@ trait Response
      */
     static function json($data, $status = 200, array $headers = [])
     {
-        return static::plugin(
-            Arg::RESPONSE_JSON, [Arg::DATA => $data, Arg::STATUS => $status, Arg::HEADERS => $headers]
-        );
+        return static::plugin('response\json', [$data, $status, $headers]);
     }
 
     /**
@@ -42,10 +40,7 @@ trait Response
      */
     static function redirect($url, $status = 302, array $headers = [], array $config = [])
     {
-        return static::plugin(
-            Arg::RESPONSE_REDIRECT, [Arg::URL => $url, Arg::STATUS => $status, Arg::HEADERS => $headers]
-                + ($config ? [Arg::CONFIG => $config] : [])
-        );
+        return static::plugin('response\redirect', [$url, $status, $headers, $config]);
     }
 
     /**
@@ -57,10 +52,7 @@ trait Response
      */
     static function response($body = null, $status = null, $headers = [], array $config = [])
     {
-        return static::plugin(
-            Arg::RESPONSE, [Arg::BODY => $body, Arg::STATUS => $status, Arg::HEADERS => $headers]
-                + ($config ? [Arg::CONFIG => $config] : [])
-        );
+        return static::plugin('response', [$body, $status, $headers, $config]);
     }
 
     /**
@@ -70,7 +62,7 @@ trait Response
      */
     static function status(HttpRequest $request, HttpResponse $response)
     {
-        return static::call('response\status', [Arg::REQUEST => $request, Arg::RESPONSE => $response]);
+        return static::call('response\status', [$request, $response]);
     }
 
     /**
@@ -79,7 +71,7 @@ trait Response
      */
     static function send(HttpResponse $response)
     {
-        return static::call('response\send', [Arg::RESPONSE => $response]);
+        return static::call('response\send', [$response]);
     }
 
     /**
@@ -89,6 +81,6 @@ trait Response
      */
     static function version(HttpRequest $request, HttpResponse $response)
     {
-        return static::call('response\version', [Arg::REQUEST => $request, Arg::RESPONSE => $response]);
+        return static::call('response\version', [$request, $response]);
     }
 }
