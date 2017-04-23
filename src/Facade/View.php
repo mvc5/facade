@@ -20,30 +20,27 @@ trait View
 
     /**
      * @param array $vars
+     * @param string $template
+     * @param string $model
+     * @return ViewLayout
+     */
+    static function layout(array $vars = [], $template = null, $model = Arg::LAYOUT)
+    {
+        return static::model($vars, $template, $model);
+    }
+
+    /**
+     * @param array $vars
      * @param null|string $template
      * @param string $model
      * @return Template|ViewModel|ViewLayout
      */
     static function model(array $vars = [], $template = null, $model = Arg::VIEW_MODEL)
     {
-        $model = static::plugin($model);
+        $template &&
+            $vars[Arg::TEMPLATE_MODEL] = $template;
 
-        $template && $model->template($template);
-
-        $vars && $model->vars($vars);
-
-        return $model;
-    }
-
-    /**
-     * @param array $vars
-     * @param string $template
-     * @param string $model
-     * @return ViewLayout
-     */
-    static function layout(array $vars = [], $template = null, $model = 'layout')
-    {
-        return static::model($vars, $template, $model);
+        return static::plugin($model, [$vars]);
     }
 
     /**
