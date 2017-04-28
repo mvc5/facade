@@ -46,7 +46,7 @@ try {
     }
 
     ($result instanceof HttpResponse && $response = $result)
-        || ($response[Arg::BODY] = $result);
+        || $response = $response->with(Arg::BODY, $result);
 
     Response::status($request, $response);
     Response::version($request, $response);
