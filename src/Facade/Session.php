@@ -18,12 +18,10 @@ trait Session
 
     /**
      * @param $name
-     * @return _Session
+     * @return mixed|_Session
      */
     static function session($name = null)
     {
-        return !($session = static::plugin(Arg::SESSION)) || !$name ? $session : (
-            is_array($session) ? ($session[$name] ?? null) : $session->get($name)
-        );
+        return !($session = static::plugin(Arg::SESSION)) || null === $name ? $session : ($session[$name] ?? null);
     }
 }
