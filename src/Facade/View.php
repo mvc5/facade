@@ -36,8 +36,7 @@ trait View
      */
     static function model(array $vars = [], $template = null, $model = Arg::VIEW_MODEL)
     {
-        $template &&
-            $vars[Arg::TEMPLATE_MODEL] = $template;
+        $template && $vars[Arg::TEMPLATE_MODEL] = $template;
 
         return !$vars ? static::plugin($model) : static::plugin($model)->with($vars);
     }
