@@ -15,8 +15,8 @@ use Arc5\View;
 use Mvc5\Arg;
 use Mvc5\Http\Request as HttpRequest;
 use Mvc5\Http\Response as HttpResponse;
-use Mvc5\Model\ViewModel;
-use Mvc5\Model\ViewLayout;
+use Mvc5\View\ViewModel;
+use Mvc5\View\ViewLayout;
 
 Service::context(include __DIR__ . '/../config/config.php');
 
@@ -40,7 +40,7 @@ try {
 
     if ($result instanceof ViewModel) {
         !$result instanceof ViewLayout && ($layout = View::layout())
-            && $layout->model($result) && $result = $layout;
+            && $result = $layout->withModel($result);
 
         $result = View::render($result);
     }
@@ -48,14 +48,14 @@ try {
     ($result instanceof HttpResponse && $response = $result)
         || $response = $response->with(Arg::BODY, $result);
 
-    Response::status($request, $response);
-    Response::version($request, $response);
+    $response = Response::status($request, $response);
+    $response = Response::version($request, $response);
     Response::send($response);
 
-}  catch(\Exception $exception) {
+}  catch(\Throwable $exception) {
 
     App::exception($exception);
-    
+
 }
 ```
 

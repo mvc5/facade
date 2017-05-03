@@ -28,7 +28,7 @@ trait Route
 
     /**
      * @param HttpRequest $request
-     * @return HttpRequest
+     * @return mixed|HttpRequest
      */
     static function error(HttpRequest $request)
     {
