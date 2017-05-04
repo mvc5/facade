@@ -5,7 +5,6 @@
 
 namespace Arc5\Facade;
 
-use Mvc5\Arg;
 use Mvc5\Http\Request as HttpRequest;
 use Mvc5\Http\Response as HttpResponse;
 use Mvc5\Response\Json;
