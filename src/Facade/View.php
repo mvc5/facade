@@ -6,9 +6,9 @@
 namespace Arc5\Facade;
 
 use Mvc5\Arg;
+use Mvc5\Service\Facade;
 use Mvc5\Template\TemplateModel;
 use Mvc5\Template\TemplateLayout;
-use Mvc5\Service\Facade;
 
 trait View
 {
