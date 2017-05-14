@@ -6,7 +6,6 @@
 namespace Arc5\Facade;
 
 use Mvc5\Arg;
-use Mvc5\Session\Session as _Session;
 use Mvc5\Service\Facade;
 
 trait Session
@@ -18,7 +17,7 @@ trait Session
 
     /**
      * @param $name
-     * @return mixed|_Session
+     * @return \Mvc5\Session\Session|mixed
      */
     static function session($name = null)
     {

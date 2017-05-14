@@ -6,9 +6,6 @@
 namespace Arc5\Facade;
 
 use Mvc5\Arg;
-use Mvc5\Http\Error;
-use Mvc5\Request\Request as _Request;
-use Mvc5\Route\Route;
 use Mvc5\Service\Facade;
 
 trait Request
@@ -88,7 +85,7 @@ trait Request
     }
 
     /**
-     * @return Error
+     * @return \Mvc5\Http\Error
      */
     static function error()
     {
@@ -221,7 +218,7 @@ trait Request
     }
 
     /**
-     * @return _Request
+     * @return \Mvc5\Request\Request
      */
     static function request()
     {
@@ -229,7 +226,7 @@ trait Request
     }
 
     /**
-     * @return Route
+     * @return \Mvc5\Route\Route
      */
     static function route()
     {

@@ -7,8 +7,6 @@ namespace Arc5\Facade;
 
 use Mvc5\Arg;
 use Mvc5\Service\Facade;
-use Mvc5\Template\TemplateModel;
-use Mvc5\Template\TemplateLayout;
 
 trait View
 {
@@ -21,7 +19,7 @@ trait View
      * @param array $vars
      * @param string $template
      * @param string $model
-     * @return mixed|TemplateLayout
+     * @return \Mvc5\Template\TemplateLayout|mixed
      */
     static function layout(array $vars = [], $template = null, $model = Arg::LAYOUT)
     {
@@ -32,7 +30,7 @@ trait View
      * @param array $vars
      * @param null|string $template
      * @param string $model
-     * @return mixed|TemplateModel
+     * @return \Mvc5\Template\TemplateModel|mixed
      */
     static function model(array $vars = [], $template = null, $model = Arg::VIEW_MODEL)
     {
@@ -55,7 +53,7 @@ trait View
      * @param string $template
      * @param array $vars
      * @param string $model
-     * @return mixed|TemplateModel
+     * @return \Mvc5\Template\TemplateModel|mixed
      */
     static function template($template = null, array $vars = [], $model = Arg::VIEW_MODEL)
     {

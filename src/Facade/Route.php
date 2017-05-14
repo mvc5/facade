@@ -6,7 +6,7 @@
 namespace Arc5\Facade;
 
 use Mvc5\Arg;
-use Mvc5\Http\Request as HttpRequest;
+use Mvc5\Http\Request;
 use Mvc5\Http\Uri;
 use Mvc5\Service\Facade;
 
@@ -18,19 +18,19 @@ trait Route
     use Facade;
 
     /**
-     * @param HttpRequest $request
-     * @return mixed|HttpRequest
+     * @param Request $request
+     * @return mixed|Request
      */
-    static function dispatch(HttpRequest $request)
+    static function dispatch(Request $request)
     {
         return static::call('route\dispatch', [$request]);
     }
 
     /**
-     * @param HttpRequest $request
-     * @return mixed|HttpRequest
+     * @param Request $request
+     * @return mixed|Request
      */
-    static function error(HttpRequest $request)
+    static function error(Request $request)
     {
         return static::call('request\error', [$request]);
     }

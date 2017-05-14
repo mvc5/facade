@@ -5,10 +5,9 @@
 
 namespace Arc5\Facade;
 
-use Mvc5\App as Application;
+use Mvc5\App;
 use Mvc5\Service\Context;
 use Mvc5\Service\Facade;
-use Mvc5\Service\Manager;
 use Mvc5\Service\Service as _Service;
 
 trait Service
@@ -28,7 +27,7 @@ trait Service
 
     /**
      * @param _Service $service
-     * @return callable|Manager|_Service
+     * @return callable|_Service
      */
     static function bind(_Service $service)
     {
@@ -39,10 +38,10 @@ trait Service
      * @param $config
      * @param callable|null $provider
      * @param bool $scope
-     * @return callable|Manager|_Service
+     * @return callable|\Mvc5\Service\Manager|_Service
      */
     static function context($config = [], callable $provider = null, $scope = true)
     {
-        return static::bind(new Application($config, $provider, $scope));
+        return static::bind(new App($config, $provider, $scope));
     }
 }

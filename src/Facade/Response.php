@@ -7,9 +7,6 @@ namespace Arc5\Facade;
 
 use Mvc5\Http\Request as HttpRequest;
 use Mvc5\Http\Response as HttpResponse;
-use Mvc5\Response\Json;
-use Mvc5\Response\Redirect;
-use Mvc5\Response\Response as _Response;
 use Mvc5\Service\Facade;
 
 trait Response
@@ -23,7 +20,7 @@ trait Response
      * @param $data
      * @param int $status
      * @param array $headers
-     * @return Json
+     * @return \Mvc5\Response\JsonResponse
      */
     static function json($data, $status = 200, array $headers = [])
     {
@@ -35,7 +32,7 @@ trait Response
      * @param int $status
      * @param array $headers
      * @param array $config
-     * @return Redirect
+     * @return \Mvc5\Response\RedirectResponse
      */
     static function redirect($url, $status = 302, array $headers = [], array $config = [])
     {
@@ -47,7 +44,7 @@ trait Response
      * @param string $status
      * @param array $headers
      * @param array $config
-     * @@return _Response
+     * @@return \Mvc5\Response\Response
      */
     static function response($body = null, $status = null, $headers = [], array $config = [])
     {

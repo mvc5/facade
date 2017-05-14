@@ -7,7 +7,6 @@ namespace Arc5\Facade;
 
 use Mvc5\Arg;
 use Mvc5\Service\Facade;
-use Mvc5\Session\SessionMessages;
 
 trait Message
 {
@@ -44,7 +43,7 @@ trait Message
     }
 
     /**
-     * @return SessionMessages
+     * @return \Mvc5\Session\SessionMessages
      */
     static function messages()
     {
