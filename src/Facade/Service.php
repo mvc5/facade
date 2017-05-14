@@ -38,7 +38,7 @@ trait Service
      * @param $config
      * @param callable|null $provider
      * @param bool $scope
-     * @return callable|\Mvc5\Service\Manager|_Service
+     * @return callable|_Service
      */
     static function context($config = [], callable $provider = null, $scope = true)
     {

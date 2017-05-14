@@ -5,8 +5,7 @@
 
 namespace Arc5\Facade;
 
-use Mvc5\Http\Request as HttpRequest;
-use Mvc5\Http\Response as HttpResponse;
+use Mvc5\Http;
 use Mvc5\Service\Facade;
 
 trait Response
@@ -52,30 +51,30 @@ trait Response
     }
 
     /**
-     * @param HttpRequest $request
-     * @param HttpResponse $response
-     * @return HttpResponse
+     * @param Http\Request $request
+     * @param Http\Response $response
+     * @return Http\Response
      */
-    static function status(HttpRequest $request, HttpResponse $response)
+    static function status(Http\Request $request, Http\Response $response)
     {
         return static::call('response\status', [$request, $response]);
     }
 
     /**
-     * @param HttpResponse $response
-     * @return HttpResponse
+     * @param Http\Response $response
+     * @return Http\Response
      */
-    static function send(HttpResponse $response)
+    static function send(Http\Response $response)
     {
         return static::call('response\send', [$response]);
     }
 
     /**
-     * @param HttpRequest $request
-     * @param HttpResponse $response
-     * @return HttpResponse
+     * @param Http\Request $request
+     * @param Http\Response $response
+     * @return Http\Response
      */
-    static function version(HttpRequest $request, HttpResponse $response)
+    static function version(Http\Request $request, Http\Response $response)
     {
         return static::call('response\version', [$request, $response]);
     }

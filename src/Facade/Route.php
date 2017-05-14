@@ -7,7 +7,6 @@ namespace Arc5\Facade;
 
 use Mvc5\Arg;
 use Mvc5\Http\Request;
-use Mvc5\Http\Uri;
 use Mvc5\Service\Facade;
 
 trait Route
@@ -36,7 +35,7 @@ trait Route
     }
 
     /**
-     * @param array|null|string|Uri $route
+     * @param array|null|string|\Mvc5\Http\Uri $route
      * @param array|string $query
      * @param string $fragment
      * @param array $options
