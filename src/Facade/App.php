@@ -30,7 +30,7 @@ trait App
      */
     static function middleware($config)
     {
-        return Service::context($config)->call('web\middleware');
+        return Service::context($config)->call(Arg::HTTP_MIDDLEWARE);
     }
 
     /**
