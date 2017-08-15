@@ -44,4 +44,14 @@ trait Service
     {
         return static::bind(new App($config, $provider, $scope));
     }
+
+    /**
+     * @param $name
+     * @param array $args
+     * @return mixed
+     */
+    static function __callStatic($name, array $args)
+    {
+        return static::service()->call($name, $args);
+    }
 }
