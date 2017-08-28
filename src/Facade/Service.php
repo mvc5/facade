@@ -50,7 +50,7 @@ trait Service
      * @param array $args
      * @return mixed
      */
-    static function __callStatic($name, array $args)
+    static function __callStatic(string $name, array $args)
     {
         return static::service()->call($name, $args);
     }

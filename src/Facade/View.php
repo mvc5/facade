@@ -21,7 +21,7 @@ trait View
      * @param string $model
      * @return \Mvc5\Template\TemplateLayout|mixed
      */
-    static function layout(array $vars = [], $template = null, $model = Arg::LAYOUT)
+    static function layout(array $vars = [], string $template = null, string $model = Arg::LAYOUT)
     {
         return static::model($vars, $template, $model);
     }
@@ -32,7 +32,7 @@ trait View
      * @param string $model
      * @return \Mvc5\Template\TemplateModel|mixed
      */
-    static function model(array $vars = [], $template = null, $model = Arg::VIEW_MODEL)
+    static function model(array $vars = [], string $template = null, string $model = Arg::VIEW_MODEL)
     {
         $template && $vars[Arg::TEMPLATE_MODEL] = $template;
 
@@ -40,7 +40,7 @@ trait View
     }
 
     /**
-     * @param mixed|string $template
+     * @param array|string|\Mvc5\Template\TemplateModel $template
      * @param array $vars
      * @return string
      */
@@ -55,7 +55,7 @@ trait View
      * @param string $model
      * @return \Mvc5\Template\TemplateModel|mixed
      */
-    static function template($template = null, array $vars = [], $model = Arg::VIEW_MODEL)
+    static function template(string $template = null, array $vars = [], string $model = Arg::VIEW_MODEL)
     {
         return static::model($vars, $template, $model);
     }

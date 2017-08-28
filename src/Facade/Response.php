@@ -21,7 +21,7 @@ trait Response
      * @param array $headers
      * @return \Mvc5\Response\JsonResponse
      */
-    static function json($data, $status = 200, array $headers = [])
+    static function json($data, int $status = 200, array $headers = [])
     {
         return static::plugin('response\json', [$data, $status, $headers]);
     }
@@ -33,19 +33,19 @@ trait Response
      * @param array $config
      * @return \Mvc5\Response\RedirectResponse
      */
-    static function redirect($url, $status = 302, array $headers = [], array $config = [])
+    static function redirect($url, int $status = 302, array $headers = [], array $config = [])
     {
         return static::plugin('response\redirect', [$url, $status, $headers, $config]);
     }
 
     /**
      * @param null $body
-     * @param string $status
-     * @param array $headers
+     * @param int|null $status
+     * @param array|Http\Headers $headers
      * @param array $config
      * @@return \Mvc5\Response\Response
      */
-    static function response($body = null, $status = null, $headers = [], array $config = [])
+    static function response($body = null, int $status = null, $headers = [], array $config = [])
     {
         return static::plugin('response', [$body, $status, $headers, $config]);
     }

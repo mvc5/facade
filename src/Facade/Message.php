@@ -19,7 +19,7 @@ trait Message
      * @param string $message
      * @param string $name
      */
-    static function danger($message, $name = Arg::INDEX)
+    static function danger($message, string $name = Arg::INDEX)
     {
         static::messages()->danger($message, $name);
     }
@@ -28,7 +28,7 @@ trait Message
      * @param string $message
      * @param string $name
      */
-    static function info($message, $name = Arg::INDEX)
+    static function info($message, string $name = Arg::INDEX)
     {
         static::messages()->info($message, $name);
     }
@@ -37,7 +37,7 @@ trait Message
      * @param $name
      * @return array
      */
-    static function message($name = Arg::INDEX)
+    static function message(string $name = Arg::INDEX)
     {
         return static::messages()->message($name);
     }
@@ -54,7 +54,7 @@ trait Message
      * @param string $message
      * @param string $name
      */
-    static function success($message, $name = Arg::INDEX)
+    static function success($message, string $name = Arg::INDEX)
     {
         static::messages()->success($message, $name);
     }
@@ -63,7 +63,7 @@ trait Message
      * @param string $message
      * @param string $name
      */
-    static function warning($message, $name = Arg::INDEX)
+    static function warning($message, string $name = Arg::INDEX)
     {
         static::messages()->warning($message, $name);
     }

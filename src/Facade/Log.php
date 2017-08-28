@@ -21,7 +21,7 @@ trait Log
      * @param $level
      * @return mixed
      */
-    static function log($message, array $context = [], $level = Arg::SEVERITY_CRITICAL)
+    static function log($message, array $context = [], int $level = Arg::SEVERITY_CRITICAL)
     {
         return static::call(Arg::LOG, [Arg::LEVEL => $level, Arg::MESSAGE => $message, Arg::CONTEXT => $context]);
     }

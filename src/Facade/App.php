@@ -16,16 +16,16 @@ trait App
     use Facade;
 
     /**
-     * @param \Exception|\Throwable $exception
+     * @param \Throwable $exception
      * @return callable|mixed|null|object
      */
-    static function exception($exception)
+    static function exception(\Throwable $exception)
     {
         return static::call(Arg::EXCEPTION_RESPONSE, [Arg::EXCEPTION => $exception]);
     }
 
     /**
-     * @param array $config
+     * @param array|\ArrayAccess $config
      * @return callable|mixed|null|object
      */
     static function middleware($config)
@@ -34,7 +34,7 @@ trait App
     }
 
     /**
-     * @param array $config
+     * @param array|\ArrayAccess $config
      * @return callable|mixed|null|object
      */
     static function web($config)
