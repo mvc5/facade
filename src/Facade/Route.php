@@ -36,12 +36,12 @@ trait Route
 
     /**
      * @param null|string|string[]|\Mvc5\Http\Uri $route
-     * @param array|string $query
-     * @param string $fragment
+     * @param array|null|string $query
+     * @param null|string $fragment
      * @param array $options
      * @return string
      */
-    static function url($route = null, $query = '', string $fragment = '', array $options = [])
+    static function url($route = null, $query = null, string $fragment = null, array $options = [])
     {
         return static::call(Arg::URL, [$route, $query, $fragment, $options]);
     }
