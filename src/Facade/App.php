@@ -17,7 +17,7 @@ trait App
 
     /**
      * @param \Throwable $exception
-     * @return callable|mixed|null|object
+     * @return mixed
      */
     static function exception(\Throwable $exception)
     {
@@ -25,8 +25,8 @@ trait App
     }
 
     /**
-     * @param array|\ArrayAccess $config
-     * @return callable|mixed|null|object
+     * @param array|mixed $config
+     * @return mixed
      */
     static function middleware($config)
     {
@@ -34,8 +34,8 @@ trait App
     }
 
     /**
-     * @param array|\ArrayAccess $config
-     * @return callable|mixed|null|object
+     * @param array|mixed $config
+     * @return mixed
      */
     static function web($config)
     {

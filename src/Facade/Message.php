@@ -16,7 +16,7 @@ trait Message
     use Facade;
 
     /**
-     * @param string $message
+     * @param array|string $message
      * @param string $name
      */
     static function danger($message, string $name = Arg::INDEX)
@@ -25,7 +25,7 @@ trait Message
     }
 
     /**
-     * @param string $message
+     * @param array|string $message
      * @param string $name
      */
     static function info($message, string $name = Arg::INDEX)
@@ -35,7 +35,7 @@ trait Message
 
     /**
      * @param $name
-     * @return array
+     * @return array|null
      */
     static function message(string $name = Arg::INDEX)
     {
@@ -51,7 +51,7 @@ trait Message
     }
 
     /**
-     * @param string $message
+     * @param array|string $message
      * @param string $name
      */
     static function success($message, string $name = Arg::INDEX)
@@ -60,7 +60,7 @@ trait Message
     }
 
     /**
-     * @param string $message
+     * @param array|string $message
      * @param string $name
      */
     static function warning($message, string $name = Arg::INDEX)

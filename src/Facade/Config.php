@@ -19,7 +19,7 @@ trait Config
     }
 
     /**
-     *
+     * @return array|mixed
      */
     static function config()
     {

@@ -17,7 +17,7 @@ trait Request
 
     /**
      * @param string $name
-     * @param null $default
+     * @param mixed $default
      * @return mixed
      */
     static function arg(string $name, $default = null)
@@ -42,7 +42,7 @@ trait Request
     }
 
     /**
-     * @return mixed
+     * @return string|mixed
      */
     static function clientAddress()
     {
@@ -50,7 +50,7 @@ trait Request
     }
 
     /**
-     * @return array|callable|null|object|string
+     * @return callable|mixed
      */
     static function controller()
     {
@@ -59,7 +59,7 @@ trait Request
 
     /**
      * @param string $name
-     * @return array|\ArrayAccess
+     * @return array|mixed
      */
     static function cookie(string $name)
     {
@@ -75,9 +75,9 @@ trait Request
     }
 
     /**
-     * @param string $name
-     * @param null $default
-     * @return mixed
+     * @param string|null $name
+     * @param mixed $default
+     * @return array|mixed
      */
     static function data(string $name = null, $default = null)
     {
@@ -93,7 +93,7 @@ trait Request
     }
 
     /**
-     * @return array
+     * @return array|mixed
      */
     static function files()
     {
@@ -102,7 +102,7 @@ trait Request
 
     /**
      * @param string $name
-     * @return string
+     * @return array|string
      */
     static function header(string $name)
     {
@@ -110,7 +110,7 @@ trait Request
     }
 
     /**
-     * @return array
+     * @return array|\Mvc5\Http\Headers
      */
     static function headers()
     {
@@ -167,8 +167,8 @@ trait Request
 
     /**
      * @param string $name
-     * @param null $default
-     * @return mixed
+     * @param mixed $default
+     * @return string|mixed
      */
     static function param(string $name, $default = null)
     {
@@ -192,7 +192,7 @@ trait Request
     }
 
     /**
-     * @return int|null|string
+     * @return int|null
      */
     static function port()
     {
@@ -200,9 +200,9 @@ trait Request
     }
 
     /**
-     * @param string $name
-     * @param null $default
-     * @return array
+     * @param string|null $name
+     * @param mixed $default
+     * @return array|mixed
      */
     static function post(string $name = null, $default = null)
     {
@@ -242,9 +242,9 @@ trait Request
     }
 
     /**
-     * @param string $name
-     * @param null $default
-     * @return array|\ArrayAccess
+     * @param string|null $name
+     * @param mixed $default
+     * @return array|mixed
      */
     static function server(string $name = null, $default = null)
     {
@@ -252,9 +252,9 @@ trait Request
     }
 
     /**
-     * @param string $name
-     * @param null $default
-     * @return array|\ArrayAccess
+     * @param string|null $name
+     * @param mixed $default
+     * @return array|\Mvc5\Session\Session|mixed
      */
     static function session(string $name = null, $default = null)
     {
@@ -287,7 +287,7 @@ trait Request
 
     /**
      * @param string $name
-     * @param null $default
+     * @param mixed $default
      * @return mixed
      */
     static function var(string $name, $default = null)

@@ -35,9 +35,9 @@ trait Service
     }
 
     /**
-     * @param $config
+     * @param array|\ArrayAccess $config
      * @param callable|null $provider
-     * @param bool $scope
+     * @param bool|object $scope
      * @return callable|_Service
      */
     static function context($config = [], callable $provider = null, $scope = true)
@@ -46,7 +46,7 @@ trait Service
     }
 
     /**
-     * @param $name
+     * @param string $name
      * @param array $args
      * @return mixed
      */

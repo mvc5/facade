@@ -18,7 +18,7 @@ trait Route
 
     /**
      * @param Request $request
-     * @return mixed|Request
+     * @return Request|mixed
      */
     static function dispatch(Request $request)
     {
@@ -27,7 +27,7 @@ trait Route
 
     /**
      * @param Request $request
-     * @return mixed|Request
+     * @return Request|mixed
      */
     static function error(Request $request)
     {
@@ -35,11 +35,11 @@ trait Route
     }
 
     /**
-     * @param null|string|string[]|\Mvc5\Http\Uri $route
-     * @param array|null|string $query
-     * @param null|string $fragment
+     * @param string|string[]|\Mvc5\Http\Uri|null $route
+     * @param array|string|null $query
+     * @param string|null $fragment
      * @param array $options
-     * @return string
+     * @return string|null
      */
     static function url($route = null, $query = null, string $fragment = null, array $options = [])
     {

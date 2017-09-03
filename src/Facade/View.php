@@ -17,7 +17,7 @@ trait View
 
     /**
      * @param array $vars
-     * @param string $template
+     * @param string|null $template
      * @param string $model
      * @return \Mvc5\Template\TemplateLayout|mixed
      */
@@ -28,7 +28,7 @@ trait View
 
     /**
      * @param array $vars
-     * @param null|string $template
+     * @param string|null $template
      * @param string $model
      * @return \Mvc5\Template\TemplateModel|mixed
      */
@@ -50,7 +50,7 @@ trait View
     }
 
     /**
-     * @param string $template
+     * @param string|null $template
      * @param array $vars
      * @param string $model
      * @return \Mvc5\Template\TemplateModel|mixed

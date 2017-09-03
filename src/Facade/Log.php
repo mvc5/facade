@@ -18,7 +18,7 @@ trait Log
     /**
      * @param $message
      * @param array $context
-     * @param $level
+     * @param int $level
      * @return mixed
      */
     static function log($message, array $context = [], int $level = Arg::SEVERITY_CRITICAL)

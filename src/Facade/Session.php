@@ -16,7 +16,7 @@ trait Session
     use Facade;
 
     /**
-     * @param $name
+     * @param string|null $name
      * @return \Mvc5\Session\Session|mixed
      */
     static function session(string $name = null)

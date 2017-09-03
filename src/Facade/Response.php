@@ -55,7 +55,7 @@ trait Response
      * @param Http\Response $response
      * @return Http\Response
      */
-    static function status(Http\Request $request, Http\Response $response)
+    static function status(Http\Request $request, Http\Response $response) : Http\Response
     {
         return static::call('response\status', [$request, $response]);
     }
@@ -64,7 +64,7 @@ trait Response
      * @param Http\Response $response
      * @return Http\Response
      */
-    static function send(Http\Response $response)
+    static function send(Http\Response $response) : Http\Response
     {
         return static::call('response\send', [$response]);
     }
@@ -74,7 +74,7 @@ trait Response
      * @param Http\Response $response
      * @return Http\Response
      */
-    static function version(Http\Request $request, Http\Response $response)
+    static function version(Http\Request $request, Http\Response $response) : Http\Response
     {
         return static::call('response\version', [$request, $response]);
     }
