@@ -16,11 +16,12 @@ trait Session
     use Facade;
 
     /**
-     * @param string|null $name
+     * @param array|string|null $name
      * @return \Mvc5\Session\Session|mixed
      */
-    static function session(string $name = null)
+    static function session($name = null)
     {
-        return !($session = static::plugin(Arg::SESSION)) || null === $name ? $session : ($session[$name] ?? null);
+        /** @var \Mvc5\Session\Session $session */
+        return !($session = static::plugin(Arg::SESSION)) || null === $name ? $session : $session->get($name);
     }
 }
