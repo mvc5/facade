@@ -41,7 +41,7 @@ trait Route
      * @param array $options
      * @return string|null
      */
-    static function url($route = null, $query = null, string $fragment = null, array $options = [])
+    static function url($route = null, $query = null, string $fragment = null, array $options = []) : ?string
     {
         return static::call(Arg::URL, [$route, $query, $fragment, $options]);
     }

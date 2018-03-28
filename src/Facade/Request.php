@@ -6,6 +6,8 @@
 namespace Arc5\Facade;
 
 use Mvc5\Arg;
+use Mvc5\Http;
+use Mvc5\Route\Route;
 use Mvc5\Service\Facade;
 
 trait Request
@@ -16,11 +18,11 @@ trait Request
     use Facade;
 
     /**
-     * @param string $name
+     * @param array|string $name
      * @param mixed $default
      * @return mixed
      */
-    static function arg(string $name, $default = null)
+    static function arg($name, $default = null)
     {
         return static::request()->arg($name, $default);
     }
@@ -28,7 +30,7 @@ trait Request
     /**
      * @return array
      */
-    static function args()
+    static function args() : array
     {
         return static::request()->args();
     }
@@ -42,9 +44,9 @@ trait Request
     }
 
     /**
-     * @return string|mixed
+     * @return string|null
      */
-    static function clientAddress()
+    static function clientAddress() : ?string
     {
         return static::request()->clientAddress();
     }
@@ -58,10 +60,10 @@ trait Request
     }
 
     /**
-     * @param string $name
+     * @param array|string $name
      * @return array|mixed
      */
-    static function cookie(string $name)
+    static function cookie($name)
     {
         return static::request()->cookie($name);
     }
@@ -75,19 +77,19 @@ trait Request
     }
 
     /**
-     * @param string|null $name
+     * @param array|string|null $name
      * @param mixed $default
      * @return array|mixed
      */
-    static function data(string $name = null, $default = null)
+    static function data($name = null, $default = null)
     {
         return static::request()->data($name, $default);
     }
 
     /**
-     * @return \Mvc5\Http\Error
+     * @return Http\Error|null
      */
-    static function error()
+    static function error() : ?Http\Error
     {
         return static::request()->error();
     }
@@ -101,10 +103,10 @@ trait Request
     }
 
     /**
-     * @param string $name
-     * @return array|string
+     * @param array|string $name
+     * @return array|string|null
      */
-    static function header(string $name)
+    static function header($name)
     {
         return static::request()->header($name);
     }
@@ -118,9 +120,9 @@ trait Request
     }
 
     /**
-     * @return string|string[]
+     * @return string|null
      */
-    static function host()
+    static function host() : ?string
     {
         return static::request()->host();
     }
@@ -128,7 +130,7 @@ trait Request
     /**
      * @return bool
      */
-    static function isPost()
+    static function isPost() : bool
     {
         return static::request()->isPost();
     }
@@ -136,7 +138,7 @@ trait Request
     /**
      * @return bool
      */
-    static function isSecure()
+    static function isSecure() : bool
     {
         return static::request()->isSecure();
     }
@@ -144,33 +146,33 @@ trait Request
     /**
      * @return bool
      */
-    static function isXmlHttpRequest()
+    static function isXmlHttpRequest() : bool
     {
         return static::request()->isXmlHttpRequest();
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    static function method()
+    static function method() : ?string
     {
         return static::request()->method();
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    static function name()
+    static function name() : ?string
     {
         return static::request()->name();
     }
 
     /**
-     * @param string $name
+     * @param array|string $name
      * @param mixed $default
      * @return string|mixed
      */
-    static function param(string $name, $default = null)
+    static function param($name, $default = null)
     {
         return static::request()->param($name, $default);
     }
@@ -178,15 +180,15 @@ trait Request
     /**
      * @return array
      */
-    static function params()
+    static function params() : array
     {
         return static::request()->params();
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    static function path()
+    static function path() : ?string
     {
         return static::request()->path();
     }
@@ -194,17 +196,17 @@ trait Request
     /**
      * @return int|null
      */
-    static function port()
+    static function port() : ?int
     {
         return static::request()->port();
     }
 
     /**
-     * @param string|null $name
+     * @param array|string|null $name
      * @param mixed $default
      * @return array|mixed
      */
-    static function post(string $name = null, $default = null)
+    static function post($name = null, $default = null)
     {
         return static::request()->post($name, $default);
     }
@@ -220,49 +222,49 @@ trait Request
     /**
      * @return \Mvc5\Request\Request
      */
-    static function request()
+    static function request() : \Mvc5\Request\Request
     {
         return static::shared(Arg::REQUEST);
     }
 
     /**
-     * @return \Mvc5\Route\Route
+     * @return Route|null
      */
-    static function route()
+    static function route() : ?Route
     {
         return static::request()->route();
     }
 
     /**
-     * @return string|string[]
+     * @return string|null
      */
-    static function scheme()
+    static function scheme() : ?string
     {
         return static::request()->scheme();
     }
 
     /**
-     * @param string|null $name
+     * @param array|string|null $name
      * @param mixed $default
      * @return array|mixed
      */
-    static function server(string $name = null, $default = null)
+    static function server($name = null, $default = null)
     {
         return static::request()->server($name, $default);
     }
 
     /**
-     * @param string|null $name
+     * @param array|string|null $name
      * @param mixed $default
      * @return array|\Mvc5\Session\Session|mixed
      */
-    static function session(string $name = null, $default = null)
+    static function session($name = null, $default = null)
     {
         return static::request()->session($name, $default);
     }
 
     /**
-     * @return string
+     * @return string|Http\Uri|null
      */
     static function uri()
     {
@@ -278,19 +280,19 @@ trait Request
     }
 
     /**
-     * @return mixed
+     * @return string|null
      */
-    static function userAgent()
+    static function userAgent() : ?string
     {
         return static::request()->userAgent();
     }
 
     /**
-     * @param string $name
+     * @param array|string $name
      * @param mixed $default
      * @return mixed
      */
-    static function var(string $name, $default = null)
+    static function var($name, $default = null)
     {
         return static::request()->var($name, $default);
     }
@@ -298,15 +300,15 @@ trait Request
     /**
      * @return array
      */
-    static function vars()
+    static function vars() : array
     {
         return static::request()->vars();
     }
 
     /**
-     * @return int
+     * @return string|null
      */
-    static function version()
+    static function version() : ?string
     {
         return static::request()->version();
     }
