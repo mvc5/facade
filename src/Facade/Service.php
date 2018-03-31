@@ -39,6 +39,7 @@ trait Service
      * @param callable|null $provider
      * @param bool|object $scope
      * @return callable|_Service
+     * @throws \Throwable
      */
     static function context($config = [], callable $provider = null, $scope = true)
     {
