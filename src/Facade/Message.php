@@ -35,10 +35,10 @@ trait Message
     }
 
     /**
-     * @param string|null $name
+     * @param array|string|null $name
      * @return array|null
      */
-    static function message(string $name = null)
+    static function message($name = null)
     {
         return static::messages()->message($name);
     }
