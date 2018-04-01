@@ -32,7 +32,10 @@ try {
 
         Service::service()[Arg::REQUEST] = $request;
 
-        $controller = $request->controller();
+        $controller = $request[Arg::CONTROLLER];
+
+        $request = $request->with(Arg::USER, Service::plugin(Arg::USER));
+
         $controller && $result = Service::call(
             $controller, [Arg::REQUEST => $request, Arg::RESPONSE => $response]
         );
