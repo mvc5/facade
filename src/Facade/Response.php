@@ -43,9 +43,9 @@ trait Response
      * @param int|null $status
      * @param array|Http\Headers $headers
      * @param array $config
-     * @@return \Mvc5\Response\Response
+     * @return \Mvc5\Response\Response
      */
-    static function response($body = null, int $status = null, $headers = [], array $config = [])
+    static function response($body = null, int $status = null, $headers = [], array $config = []) : Http\Response
     {
         return static::plugin('response', [$body, $status, $headers, $config]);
     }

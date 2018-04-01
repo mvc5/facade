@@ -220,9 +220,9 @@ trait Request
     }
 
     /**
-     * @return \Mvc5\Request\Request
+     * @return Http\Request|\Mvc5\Request\Request
      */
-    static function request() : \Mvc5\Request\Request
+    static function request() : Http\Request
     {
         return static::shared(Arg::REQUEST);
     }
