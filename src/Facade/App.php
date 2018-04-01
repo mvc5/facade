@@ -27,6 +27,7 @@ trait App
     /**
      * @param array|mixed $config
      * @return mixed
+     * @throws \Throwable
      */
     static function middleware($config)
     {
@@ -36,6 +37,7 @@ trait App
     /**
      * @param array|mixed $config
      * @return mixed
+     * @throws \Throwable
      */
     static function web($config)
     {
