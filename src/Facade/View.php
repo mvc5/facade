@@ -7,6 +7,8 @@ namespace Arc5\Facade;
 
 use Mvc5\Arg;
 use Mvc5\Service\Facade;
+use Mvc5\Template\TemplateLayout;
+use Mvc5\Template\TemplateModel;
 
 trait View
 {
@@ -19,9 +21,10 @@ trait View
      * @param array $vars
      * @param string|null $template
      * @param string $model
-     * @return \Mvc5\Template\TemplateLayout|mixed
+     * @return TemplateLayout|mixed
+     * @throws \Throwable
      */
-    static function layout(array $vars = [], string $template = null, string $model = Arg::LAYOUT)
+    static function layout(array $vars = [], string $template = null, string $model = Arg::LAYOUT) : TemplateLayout
     {
         return static::model($vars, $template, $model);
     }
@@ -30,9 +33,10 @@ trait View
      * @param array $vars
      * @param string|null $template
      * @param string $model
-     * @return \Mvc5\Template\TemplateModel|mixed
+     * @return TemplateModel|mixed
+     * @throws \Throwable
      */
-    static function model(array $vars = [], string $template = null, string $model = Arg::VIEW_MODEL)
+    static function model(array $vars = [], string $template = null, string $model = Arg::VIEW_MODEL) : TemplateModel
     {
         $template && $vars[Arg::TEMPLATE_MODEL] = $template;
 
@@ -43,8 +47,9 @@ trait View
      * @param array|string|\Mvc5\Template\TemplateModel $template
      * @param array $vars
      * @return string
+     * @throws \Throwable
      */
-    static function render($template, array $vars = [])
+    static function render($template, array $vars = []) : string
     {
         return static::call(Arg::RENDER, [$template, $vars]);
     }
@@ -53,9 +58,10 @@ trait View
      * @param string|null $template
      * @param array $vars
      * @param string $model
-     * @return \Mvc5\Template\TemplateModel|mixed
+     * @return TemplateModel|mixed
+     * @throws \Throwable
      */
-    static function template(string $template = null, array $vars = [], string $model = Arg::VIEW_MODEL)
+    static function template(string $template = null, array $vars = [], string $model = Arg::VIEW_MODEL) : TemplateModel
     {
         return static::model($vars, $template, $model);
     }
