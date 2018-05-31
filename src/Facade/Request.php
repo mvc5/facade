@@ -18,6 +18,14 @@ trait Request
     use Facade;
 
     /**
+     * @return bool
+     */
+    static function acceptsJson() : bool
+    {
+        return static::request()->acceptsJson();
+    }
+
+    /**
      * @param array|string $name
      * @param mixed $default
      * @return mixed
