@@ -8,6 +8,14 @@ namespace Arc5;
 use Mvc5\Arg;
 
 /**
+ * @return string
+ */
+function csrf_token() : string
+{
+    return Session::session(Arg::CSRF_TOKEN);
+}
+
+/**
  * @param string $name
  * @return array
  */
