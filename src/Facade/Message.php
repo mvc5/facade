@@ -5,9 +5,10 @@
 
 namespace Arc5\Facade;
 
-use Mvc5\Arg;
 use Mvc5\Service\Facade;
 use Mvc5\Session\SessionMessages;
+
+use const Mvc5\SESSION_MESSAGES;
 
 trait Message
 {
@@ -19,6 +20,7 @@ trait Message
     /**
      * @param array|string $message
      * @param string|null $name
+     * @throws \Throwable
      */
     static function danger($message, string $name = null) : void
     {
@@ -28,6 +30,7 @@ trait Message
     /**
      * @param array|string $message
      * @param string|null $name
+     * @throws \Throwable
      */
     static function info($message, string $name = null) : void
     {
@@ -37,6 +40,7 @@ trait Message
     /**
      * @param array|string|null $name
      * @return array|null
+     * @throws \Throwable
      */
     static function message($name = null)
     {
@@ -45,15 +49,17 @@ trait Message
 
     /**
      * @return SessionMessages
+     * @throws \Throwable
      */
     static function messages() : SessionMessages
     {
-        return static::plugin(Arg::SESSION_MESSAGES);
+        return static::plugin(SESSION_MESSAGES);
     }
 
     /**
      * @param array|string $message
      * @param string|null $name
+     * @throws \Throwable
      */
     static function success($message, string $name = null) : void
     {
@@ -63,6 +69,7 @@ trait Message
     /**
      * @param array|string $message
      * @param string|null $name
+     * @throws \Throwable
      */
     static function warning($message, string $name = null) : void
     {

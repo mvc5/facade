@@ -5,10 +5,11 @@
 
 namespace Arc5\Facade;
 
-use Mvc5\Arg;
 use Mvc5\Http;
 use Mvc5\Route\Route;
 use Mvc5\Service\Facade;
+
+use const Mvc5\REQUEST;
 
 trait Request
 {
@@ -232,7 +233,7 @@ trait Request
      */
     static function request() : Http\Request
     {
-        return static::shared(Arg::REQUEST);
+        return static::shared(REQUEST);
     }
 
     /**

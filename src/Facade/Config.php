@@ -5,8 +5,9 @@
 
 namespace Arc5\Facade;
 
-use Mvc5\Arg;
 use Mvc5\Service\Facade;
+
+use const Mvc5\CONFIG;
 
 trait Config
 {
@@ -20,9 +21,10 @@ trait Config
 
     /**
      * @return array|mixed
+     * @throws \Throwable
      */
     static function config()
     {
-        return static::plugin(Arg::CONFIG);
+        return static::plugin(CONFIG);
     }
 }

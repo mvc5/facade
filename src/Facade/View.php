@@ -5,10 +5,11 @@
 
 namespace Arc5\Facade;
 
-use Mvc5\Arg;
 use Mvc5\Service\Facade;
 use Mvc5\Template\TemplateLayout;
 use Mvc5\Template\TemplateModel;
+
+use const Mvc5\{ LAYOUT, RENDER, TEMPLATE_MODEL, VIEW_MODEL };
 
 trait View
 {
@@ -24,7 +25,7 @@ trait View
      * @return TemplateLayout|mixed
      * @throws \Throwable
      */
-    static function layout(array $vars = [], string $template = null, string $model = Arg::LAYOUT) : TemplateLayout
+    static function layout(array $vars = [], string $template = null, string $model = LAYOUT) : TemplateLayout
     {
         return static::model($vars, $template, $model);
     }
@@ -36,9 +37,9 @@ trait View
      * @return TemplateModel|mixed
      * @throws \Throwable
      */
-    static function model(array $vars = [], string $template = null, string $model = Arg::VIEW_MODEL) : TemplateModel
+    static function model(array $vars = [], string $template = null, string $model = VIEW_MODEL) : TemplateModel
     {
-        $template && $vars[Arg::TEMPLATE_MODEL] = $template;
+        $template && $vars[TEMPLATE_MODEL] = $template;
 
         return !$vars ? static::plugin($model) : static::plugin($model)->with($vars);
     }
@@ -51,7 +52,7 @@ trait View
      */
     static function render($template, array $vars = []) : string
     {
-        return static::call(Arg::RENDER, [$template, $vars]);
+        return static::call(RENDER, [$template, $vars]);
     }
 
     /**
@@ -61,7 +62,7 @@ trait View
      * @return TemplateModel|mixed
      * @throws \Throwable
      */
-    static function template(string $template = null, array $vars = [], string $model = Arg::VIEW_MODEL) : TemplateModel
+    static function template(string $template = null, array $vars = [], string $model = VIEW_MODEL) : TemplateModel
     {
         return static::model($vars, $template, $model);
     }

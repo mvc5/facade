@@ -12,11 +12,12 @@ use Arc5\Response;
 use Arc5\Route;
 use Arc5\Service;
 use Arc5\View;
-use Mvc5\Arg;
 use Mvc5\Http\Request as HttpRequest;
 use Mvc5\Http\Response as HttpResponse;
 use Mvc5\View\ViewModel;
 use Mvc5\View\ViewLayout;
+
+use const Mvc5\{ BODY, CONTROLLER, REQUEST, RESPONSE, USER };
 
 Service::context(include __DIR__ . '/../config/config.php');
 
@@ -30,14 +31,14 @@ try {
         $request = Route::error($result);
         $result  = null;
 
-        Service::service()[Arg::REQUEST] = $request;
+        Service::service()[REQUEST] = $request;
 
-        $controller = $request[Arg::CONTROLLER];
+        $controller = $request[CONTROLLER];
 
-        $request = $request->with(Arg::USER, Service::plugin(Arg::USER));
+        $request = $request->with(USER, Service::plugin(USER));
 
         $controller && $result = Service::call(
-            $controller, [Arg::REQUEST => $request, Arg::RESPONSE => $response]
+            $controller, [REQUEST => $request, RESPONSE => $response]
         );
     }
 
@@ -49,7 +50,7 @@ try {
     }
 
     ($result instanceof HttpResponse && $response = $result)
-        || $response = $response->with(Arg::BODY, $result);
+        || $response = $response->with(BODY, $result);
 
     $response = Response::status($request, $response);
     $response = Response::version($request, $response);

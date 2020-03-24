@@ -5,27 +5,30 @@
 
 namespace Arc5;
 
-use Mvc5\Arg;
+use const Mvc5\{ CSRF_TOKEN, INDEX };
 
 /**
  * @return string
+ * @throws \Throwable
  */
 function csrf_token() : string
 {
-    return Session::session(Arg::CSRF_TOKEN);
+    return Session::session(CSRF_TOKEN);
 }
 
 /**
  * @param string $name
  * @return array
+ * @throws \Throwable
  */
-function message($name = Arg::INDEX)
+function message($name = INDEX)
 {
     return Message::message($name);
 }
 
 /**
  * @return \Mvc5\Session\SessionMessages
+ * @throws \Throwable
  */
 function messages()
 {
@@ -38,6 +41,7 @@ function messages()
  * @param string $fragment
  * @param array $options
  * @return string
+ * @throws \Throwable
  */
 function url($route, $query = '', $fragment = '', array $options = [])
 {

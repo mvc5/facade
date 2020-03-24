@@ -5,9 +5,10 @@
 
 namespace Arc5\Facade;
 
-use Mvc5\Arg;
 use Mvc5\Http\Request;
 use Mvc5\Service\Facade;
+
+use const Mvc5\URL;
 
 trait Route
 {
@@ -19,6 +20,7 @@ trait Route
     /**
      * @param Request $request
      * @return Request|mixed
+     * @throws \Throwable
      */
     static function dispatch(Request $request)
     {
@@ -28,6 +30,7 @@ trait Route
     /**
      * @param Request $request
      * @return Request|mixed
+     * @throws \Throwable
      */
     static function error(Request $request)
     {
@@ -40,9 +43,10 @@ trait Route
      * @param string|null $fragment
      * @param array $options
      * @return string|null
+     * @throws \Throwable
      */
     static function url($route = null, $query = null, string $fragment = null, array $options = []) : ?string
     {
-        return static::call(Arg::URL, [$route, $query, $fragment, $options]);
+        return static::call(URL, [$route, $query, $fragment, $options]);
     }
 }
