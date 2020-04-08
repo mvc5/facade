@@ -5,7 +5,7 @@
 
 namespace Arc5;
 
-class Session
+final class Session
 {
     /**
      *

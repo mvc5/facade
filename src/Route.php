@@ -5,7 +5,7 @@
 
 namespace Arc5;
 
-class Route
+final class Route
 {
     /**
      *

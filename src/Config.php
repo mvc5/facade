@@ -5,7 +5,7 @@
 
 namespace Arc5;
 
-class Config
+final class Config
 {
     /**
      *
